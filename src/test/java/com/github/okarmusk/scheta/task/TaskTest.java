@@ -1,10 +1,10 @@
-package com.scheta.task;
+package com.github.okarmusk.scheta.task;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import static org.junit.jupiter.api.Assertions.fail;
 
-public class JobTest {
+public class TaskTest {
     final AtomicBoolean scheduled = new AtomicBoolean(false);
 
     void setScheduledToTrue() {

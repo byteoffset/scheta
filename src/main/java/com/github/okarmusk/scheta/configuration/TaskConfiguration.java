@@ -1,4 +1,4 @@
-package com.scheta.configuration;
+package com.github.okarmusk.scheta.configuration;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;

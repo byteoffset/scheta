@@ -1,6 +1,6 @@
-package com.scheta.configuraiton;
+package com.github.okarmusk.scheta.configuraiton;
 
-import com.scheta.configuration.TaskConfiguration;
+import com.github.okarmusk.scheta.configuration.TaskConfiguration;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.jupiter.api.DisplayName;

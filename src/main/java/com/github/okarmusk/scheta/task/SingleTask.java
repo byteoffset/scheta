@@ -1,30 +1,30 @@
-package com.scheta.task;
+package com.github.okarmusk.scheta.task;
 
-import com.scheta.configuration.TaskConfiguration;
+import com.github.okarmusk.scheta.configuration.TaskConfiguration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 
-public class SingleJob implements Job {
-    private static final Logger logger = LoggerFactory.getLogger(SingleJob.class);
+public class SingleTask implements Task {
+    private static final Logger logger = LoggerFactory.getLogger(SingleTask.class);
 
     @Override
-    public void lunch(Runnable task, TaskConfiguration configuration) {
+    public void lunch(Runnable runnable, TaskConfiguration configuration) {
         final var scheduledExecutorService = Executors.newScheduledThreadPool(1);
 
         if (configuration == null) {
-            scheduleNow(scheduledExecutorService, task);
+            scheduleNow(scheduledExecutorService, runnable);
         } else {
             final var time = configuration.getTime();
             final boolean isScheduled = time.isPresent();
 
             if (isScheduled) {
-                scheduledExecutorService.schedule(task, Job.delay(time.get()), configuration.getUnit());
+                scheduledExecutorService.schedule(runnable, Task.delay(time.get()), configuration.getUnit());
                 logger.info("Single task will be scheduled ad: {}", time.get());
             } else {
-                scheduleNow(scheduledExecutorService, task);
+                scheduleNow(scheduledExecutorService, runnable);
             }
         }
     }

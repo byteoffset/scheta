@@ -1,14 +1,14 @@
-package com.scheta.task;
+package com.github.okarmusk.scheta.task;
 
-import com.scheta.configuration.TaskConfiguration;
+import com.github.okarmusk.scheta.configuration.TaskConfiguration;
 
 import java.time.Duration;
 import java.time.LocalTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 
-public interface Job {
-    void lunch(Runnable task, TaskConfiguration configuration);
+public interface Task {
+    void lunch(Runnable runnable, TaskConfiguration configuration);
 
     static long delay(LocalTime time) {
         final var now = ZonedDateTime.now(ZoneId.systemDefault());
