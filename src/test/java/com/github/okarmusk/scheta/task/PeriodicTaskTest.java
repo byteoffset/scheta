@@ -18,16 +18,8 @@ public class PeriodicTaskTest extends TaskTest {
     private final PeriodicTask periodicTask = new PeriodicTask();
 
     @Test
-    @DisplayName("Should throw exception if configuration is null")
-    void exceptionIfConfigurationIsNull() {
-        final var exception = assertThrows(NullPointerException.class,
-                () -> periodicTask.lunch(null, null));
-        assertEquals("Configuration must be nons null", exception.getMessage());
-    }
-
-    @Test
-    @DisplayName("Should trigger periodic task with delay")
-    void triggerTaskWithDelay() {
+    @DisplayName("Should lunch periodic task with delay")
+    void lunchTaskWithDelay() {
         final var configuration = mock(TaskConfiguration.class);
         when(configuration.getPeriod()).thenReturn(1);
         when(configuration.getUnit()).thenReturn(TimeUnit.SECONDS);
@@ -41,8 +33,8 @@ public class PeriodicTaskTest extends TaskTest {
     }
 
     @Test
-    @DisplayName("Should trigger periodic task now")
-    void triggerTaskNow() {
+    @DisplayName("Should lunch periodic task now")
+    void lunchTaskNow() {
         final var configuration = mock(TaskConfiguration.class);
         when(configuration.getPeriod()).thenReturn(1);
         when(configuration.getUnit()).thenReturn(TimeUnit.SECONDS);

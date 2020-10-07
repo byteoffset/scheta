@@ -4,7 +4,6 @@ import com.github.okarmusk.scheta.configuration.TaskConfiguration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.Objects;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
@@ -13,7 +12,6 @@ public class PeriodicTask implements Task {
 
     @Override
     public void lunch(Runnable runnable, TaskConfiguration configuration) {
-        Objects.requireNonNull(configuration, "Configuration must be nons null");
         final var scheduledExecutorService = Executors.newScheduledThreadPool(1);
         final var time = configuration.getTime();
         final var timeUnit = configuration.getUnit();

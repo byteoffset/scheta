@@ -17,8 +17,8 @@ public class SingleTaskTest extends TaskTest {
     private final SingleTask singleTask = new SingleTask();
 
     @Test
-    @DisplayName("Should trigger single task now even if configuration is null")
-    void triggerTaskNowEvenIfConfigurationIsNull() {
+    @DisplayName("Should lunch single task now even if configuration is null")
+    void lunchTaskNowEvenIfConfigurationIsNull() {
         singleTask.lunch(this::setScheduledToTrue, null);
         sleep(1000);
 
@@ -26,8 +26,8 @@ public class SingleTaskTest extends TaskTest {
     }
 
     @Test
-    @DisplayName("Should trigger single task with delay")
-    void triggerTaskWithDelay() {
+    @DisplayName("Should lunch single task with delay")
+    void lunchTaskWithDelay() {
         final var configuration = mock(TaskConfiguration.class);
         when(configuration.getUnit()).thenReturn(TimeUnit.SECONDS);
         when(configuration.getTime()).thenReturn(Optional.of(LocalTime.now().plusSeconds(2)));
@@ -40,8 +40,8 @@ public class SingleTaskTest extends TaskTest {
     }
 
     @Test
-    @DisplayName("Should trigger single task with now")
-    void triggerTaskNow() {
+    @DisplayName("Should lunch single task with now")
+    void lunchTaskNow() {
         final var configuration = mock(TaskConfiguration.class);
         when(configuration.getUnit()).thenReturn(TimeUnit.SECONDS);
         when(configuration.getTime()).thenReturn(Optional.empty());
